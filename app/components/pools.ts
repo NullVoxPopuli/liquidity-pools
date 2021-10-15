@@ -34,8 +34,6 @@ export default class Pools extends Component {
   get sortedData() {
     let sorted = this.data.records.sort((a, b) => b.expectedIncome - a.expectedIncome);
 
-    console.log(sorted);
-
     return sorted;
   }
 
