@@ -1,0 +1,30 @@
+<table style="width: 100%">
+  <thead>
+    <tr>
+      <th>Pool</th>
+      <th>Fee %</th>
+      <th>TVL</th>
+      <th>Volume</th>
+      <th>Estimated 24hr Fees</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if this.poolsQuery.loading}}
+      <tr><td>loading</td></tr>
+    {{else}}
+      {{#each this.sortedData key='id' as |pool|}}
+        <tr>
+          <td>
+            <a href="https://info.uniswap.org/#/pools/{{pool.id}}" target="_blank">
+              {{pool.name}}
+            </a>
+          </td>
+          <td>{{pool.rate}} %</td>
+          <td>{{currency pool.tvl}}</td>
+          <td>{{currency pool.volume}}</td>
+          <td>{{currency pool.expectedIncome}}</td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>
