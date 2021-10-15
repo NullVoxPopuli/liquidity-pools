@@ -23,14 +23,11 @@
     "test:ember": "ember test"
   },
   "devDependencies": {
-    "@apollo/client": "^3.4.16",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.4.2",
     "@embroider/compat": "^0.47.0",
     "@embroider/core": "^0.47.0",
     "@embroider/webpack": "^0.47.0",
-    "@glimmer/component": "^1.0.4",
-    "@glimmer/tracking": "^1.0.4",
     "@nullvoxpopuli/ember-cli-esbuild": "^4.2.2",
     "@nullvoxpopuli/eslint-configs": "^1.5.5",
     "@types/ember-data": "^3.16.15",
@@ -64,7 +61,6 @@
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^2.2.2",
-    "ember-cached-decorator-polyfill": "^0.1.4",
     "ember-cli": "~3.28.2",
     "ember-cli-app-version": "^5.0.0",
     "ember-cli-babel": "^7.26.6",
@@ -82,15 +78,12 @@
     "ember-resolver": "^8.0.2",
     "ember-source": "4.1.0-alpha.3",
     "ember-template-lint": "^3.6.0",
-    "ember-welcome-page": "^4.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-ember": "^10.5.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-qunit": "^6.2.0",
-    "glimmer-apollo": "^0.4.0",
-    "graphql": "^15.6.1",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
@@ -100,13 +93,23 @@
     "webpack": "^5.58.2"
   },
   "engines": {
-    "node": "12.* || 14.* || >= 16"
+    "node": "14.* || >= 16"
   },
   "ember": {
     "edition": "octane"
   },
   "dependencies": {
+    "graphql": "^15.6.1",
+    "glimmer-apollo": "^0.4.0",
+    "@apollo/client": "^3.4.16",
+    "ember-cached-decorator-polyfill": "^0.1.4",
+    "@glimmer/component": "^1.0.4",
+    "@glimmer/tracking": "^1.0.4",
     "ember-array-map-resource": "^2.0.0",
     "ember-resources": "^3.2.1"
+  },
+  "volta": {
+    "node": "14.18.1",
+    "yarn": "1.22.15"
   }
 }
