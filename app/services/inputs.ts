@@ -3,4 +3,5 @@ import Service from '@ember/service';
 
 export default class Inputs extends Service {
   @tracked startingValue = 100;
+  @tracked is7DayAverage = true;
 }

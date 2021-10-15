@@ -5,7 +5,13 @@
       <th>Fee %</th>
       <th>TVL</th>
       <th>Volume</th>
-      <th>Estimated 24hr Fees</th>
+      <th>Estimated
+      {{#if this.inputs.is7DayAverage}}
+        Week
+      {{else}}
+        24 hour
+      {{/if}}
+      Fees</th>
     </tr>
   </thead>
   <tbody>

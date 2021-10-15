@@ -1,6 +1,18 @@
-<input
-  type="number"
-  min="0"
-  value={{this.inputs.startingValue}}
-  {{on 'input' this.updateStartingValue}}
->
+<label>
+  Starting value ($)
+  <input
+    type="number"
+    min="0"
+    value={{this.inputs.startingValue}}
+    {{on 'input' this.updateStartingValue}}
+  >
+</label>
+
+<label>
+  Use 7-day average
+  <input
+    type="checkbox"
+    checked={{this.inputs.is7DayAverage}}
+    {{on 'change' this.toggle7Day}}
+  >
+</label>

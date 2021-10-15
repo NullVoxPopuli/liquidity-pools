@@ -11,4 +11,6 @@ export default class FormComponent extends Component {
     assert('expected input!', e.target instanceof HTMLInputElement);
     this.inputs.startingValue = parseFloat(e.target.value);
   };
+
+  toggle7Day = () => (this.inputs.is7DayAverage = !this.inputs.is7DayAverage);
 }
