@@ -88,7 +88,7 @@ class Uniswap {
 export const GET_POOLS = gql`
   query {
     pools(
-      first: 500
+      first: 200
       orderBy: volumeUSD
       orderDirection: desc
       where: { volumeUSD_gt: 10000000, liquidity_gt: 0 }
