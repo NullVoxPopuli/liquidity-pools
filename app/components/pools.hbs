@@ -4,6 +4,7 @@
       <th>Pool</th>
       <th>Fee %</th>
       <th>TVL</th>
+      <th>Your Share</th>
       <th>Volume</th>
       <th>Estimated
       {{#if this.inputs.is7DayAverage}}
@@ -21,12 +22,13 @@
       {{#each this.sortedData key='id' as |pool|}}
         <tr>
           <td>
-            <a href="https://info.uniswap.org/#/pools/{{pool.id}}" target="_blank">
+            <a href="https://info.uniswap.org/#/pools/{{pool.id}}" target="_blank" rel="noopener noreferrer">
               {{pool.name}}
             </a>
           </td>
           <td>{{pool.rate}} %</td>
           <td>{{currency pool.tvl}}</td>
+          <td>{{round (percent pool.yourShare) 3}} %</td>
           <td>{{currency pool.volume}}</td>
           <td>{{currency pool.expectedIncome}}</td>
         </tr>

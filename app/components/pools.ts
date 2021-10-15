@@ -77,11 +77,16 @@ class Uniswap {
     return parseFloat(this.pool.poolDayData[1].volumeUSD);
   }
 
-  get expectedIncome() {
+  get yourShare() {
     let starting = this.inputs.startingValue || 0;
+
+    return starting / (starting + this.tvl);
+  }
+
+  get expectedIncome() {
     let rateAsDecimal = this.rate / 100;
 
-    return (starting / (starting + this.tvl)) * (rateAsDecimal * this.volume);
+    return this.yourShare * (rateAsDecimal * this.volume);
   }
 }
 
