@@ -4,3 +4,4 @@ declare module 'liquidity-pools/templates/*' {
   const tmpl: TemplateFactory;
   export default tmpl;
 }
+

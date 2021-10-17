@@ -1,0 +1,59 @@
+<table class="table w-full">
+  <thead>
+    <tr>
+      <th>Pool</th>
+      <th>Fee %</th>
+      <th>TVL</th>
+      <th>Your Share</th>
+      <th>Volume</th>
+      <th>
+        Estimated
+        {{#if this.inputs.weekAverage}}
+          Week
+        {{else}}
+          24 hour
+        {{/if}}
+        Fees
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if this.isLoading}}
+
+      <tr>
+        <td>loading</td>
+      </tr>
+
+    {{else}}
+      {{#each this.pools key='id' as |pool|}}
+
+        <tr class="">
+
+          <td>
+            <a
+              class="
+                px-3 py-1
+                text-blue-600
+                visited:text-purple-600
+                hover:underline
+                focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50
+              "
+              href="https://info.uniswap.org/#/pools/{{pool.id}}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{pool.name}}
+            </a>
+          </td>
+          <td>{{pool.rate}} %</td>
+          <td>{{currency pool.tvl}}</td>
+          <td>{{round (percent pool.yourShare) 3}} %</td>
+          <td>{{currency pool.volume}}</td>
+          <td>{{currency pool.expectedIncome}}</td>
+
+        </tr>
+
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>

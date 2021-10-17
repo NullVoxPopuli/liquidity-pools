@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --ember-brand: #E04E39; */
+  /* --ember-black: #212121; */
+  /* --ember-burnt-ember: #9b2918; */
+  /* --ember-gray: #817f7f; */
+  /* --ember-blue: #1e719b; */
+  /* --ember-faint-gray: #efebea; */
+  /* --ember-light-blue: #74b0ce; */
+  /* --ember-linen: #fdf7f6; */
+  /* --ember-yellow: #fbc840; */
+  /* --ember-white: #fdfdfd; */
+
+  /* /1* Horizon Theme https://horizontheme.netlify.app/ *1/ */
+  /* /1* "Dark" *1/ */
+  /* --horizon-lavender: #B877DB; */
+  /* --horizon-turquoise: #25B2BC; */
+  /* --horizon-cranberry: #E95678; */
+  /* --horizon-apricot: #F09383; */
+  /* --horizon-rosebud: #FAB795; */
+  /* --horizon-tacao: #FAC29A; */
+
+  /* /1* "Light" *1/ */
+  /* --horizon-amethyst: #8931B9; */
+  /* --horizon-elm: #1D8991; */
+  /* --horizon-crimson: #DA103F; */
+  /* --horizon-thunderbird: #DC3318; */
+  /* --horizon-tango: #F6661E; */
+  /* --horizon-jaffa: #F77D26; */
+
+  /* --horizon-shadow: #16161C; */
+  /* --horizon-border: #1A1C23; */
+  /* --horizon-background: #1C1E26; */
+  /* --horizon-background-alt: #232530; */
+  /* --horizon-accent: #2E303E; */
+  /* --horizon-accent-alt: #6C6F93; */
+  /* --horizon-accent: #E9436F; */
+  /* --horizon-secondary-accent-alt: #E95379; */
+  /* --horizon-negative: #F43E5C; */
+  /* --horizon-positive: #09F7A0; */
+  /* --horizon-warning: #27D796; */
+  /* --horizon-modifier: #21BFC2; */
+  /* --horizon-tertiary-accent: #FAB28E; */
+}
+
+/* *:focus-visible { */
+/*   outline: none; */
+/*   border-radius: 0.125rem; */
+/*   box-shadow: var(--horizon-background) 0px 0px 0px 3px, var(--ember-brand) 0px 0px 0px 6px, var(--ember-burnt-ember) 0px 2px 2px 7px */
+/* } */

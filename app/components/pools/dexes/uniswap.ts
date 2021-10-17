@@ -1,17 +1,14 @@
-import Component from '@glimmer/component';
 import { cached } from '@glimmer/tracking';
 import { getOwner, setOwner } from '@ember/application';
-import { inject as service } from '@ember/service';
 
 import { useArrayMap } from 'ember-array-map-resource';
+import { Resource } from 'ember-resources';
 import { gql, useQuery } from 'glimmer-apollo';
 
-import type Inputs from 'liquidity-pools/services/inputs';
+import { PoolData } from './-base';
 
-export default class Pools extends Component {
-  @service declare inputs: Inputs;
-
-  poolsQuery = useQuery(this, () => [GET_POOLS]);
+export class UniswapData extends Resource {
+  poolsQuery = useQuery<GetPoolsQuery>(this, () => [GET_POOLS]);
 
   @cached
   get poolData() {
@@ -23,7 +20,7 @@ export default class Pools extends Component {
   data = useArrayMap(this, {
     data: () => this.poolData,
     map: (pool) => {
-      let instance = new Uniswap(pool);
+      let instance = new UniswapPool(pool);
 
       setOwner(instance, getOwner(this));
 
@@ -32,7 +29,9 @@ export default class Pools extends Component {
   });
 
   get sortedData() {
-    let sorted = this.data.records.sort((a, b) => b.expectedIncome - a.expectedIncome);
+    let sorted = this.data.records.sort(
+      (a, b) => (b?.expectedIncome ?? 0) - (a?.expectedIncome ?? 0)
+    );
 
     return sorted;
   }
@@ -44,11 +43,11 @@ export default class Pools extends Component {
 
 let BASE = 10_000;
 
-class Uniswap {
-  @service declare inputs: Inputs;
-
+export class UniswapPool extends PoolData {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  constructor(public pool: any) {}
+  constructor(public pool: any) {
+    super();
+  }
 
   get id() {
     return this.pool.id;
@@ -69,26 +68,36 @@ class Uniswap {
   }
 
   get volume() {
-    if (this.inputs.is7DayAverage) {
+    if (this.inputs.weekAverage) {
       return parseFloat(this.pool.volumeUSD);
     }
 
     // day 0 is WIP
     return parseFloat(this.pool.poolDayData[1].volumeUSD);
   }
-
-  get yourShare() {
-    let starting = this.inputs.startingValue || 0;
-
-    return starting / (starting + this.tvl);
-  }
-
-  get expectedIncome() {
-    let rateAsDecimal = this.rate / 100;
-
-    return this.yourShare * (rateAsDecimal * this.volume);
-  }
 }
+
+type GetPoolsQuery = {
+  __typename?: 'Query';
+  pools: {
+    __typename?: 'Pool';
+    id: string;
+    feeTier: string;
+    totalValueLockedUSD: string;
+    volumeUSD: string;
+    token0: {
+      name: string;
+      symbol: string;
+    };
+    token1: {
+      name: string;
+      symbol: string;
+    };
+    poolHourData: {
+      txCount: string;
+    }[];
+  }[];
+};
 
 export const GET_POOLS = gql`
   query {

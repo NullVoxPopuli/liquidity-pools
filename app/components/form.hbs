@@ -1,18 +1,34 @@
-<label>
-  Starting value ($)
-  <input
-    type="number"
-    min="0"
-    value={{this.inputs.startingValue}}
-    {{on 'input' this.updateStartingValue}}
-  >
-</label>
+<div class="grid gap-2 p-2">
+  <label>
+    Starting value ($)
+    <input
+      type="number"
+      min="0"
+      value={{this.inputs.amount}}
+      {{on 'input' this.updateStartingValue}}
+    >
+  </label>
 
-<label>
-  Use 7-day average
-  <input
-    type="checkbox"
-    checked={{this.inputs.is7DayAverage}}
-    {{on 'change' this.toggle7Day}}
-  >
-</label>
+  <label>
+    Use 7-day average
+    <input
+      type="checkbox"
+      checked={{this.inputs.weekAverage}}
+      {{on 'change' this.toggle7Day}}
+    >
+  </label>
+
+{{!--
+  {{#if (gt this.inputs.DEXes.length 1)}}
+    <label>
+      DEX
+
+      <select {{on 'change' this.updateDex}}>
+        {{#each this.inputs.DEXes as |dex|}}
+          <option value={{dex}}>{{dex}}</option>
+        {{/each}}
+      </select>
+    </label>
+  {{/if}}
+--}}
+</div>
