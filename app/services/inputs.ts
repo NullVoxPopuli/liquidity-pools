@@ -1,4 +1,3 @@
-import { tracked } from '@glimmer/tracking';
 import Service from '@ember/service';
 
 import { queryParam } from 'ember-query-params-service';
@@ -19,11 +18,7 @@ export default class Inputs extends Service {
   })
   amount = 100;
 
-  // @queryParam({
-  //   deserialize: (qp: string) => (qp === 'false' ? false : true),
-  //   serialize: (value: boolean) => `${value}`,
-  // })
-  @tracked weekAverage = true;
+  @queryParam weekAverage = true;
 
   @queryParam dex: DEX = 'uniswap (ETH)';
 }

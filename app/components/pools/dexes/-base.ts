@@ -2,6 +2,14 @@ import { inject as service } from '@ember/service';
 
 import type Inputs from 'liquidity-pools/services/inputs';
 
+export interface DexData {
+  description?: string;
+  sortedData: ArrayLike<PoolData>;
+  isLoading: boolean;
+  viablePercent: number;
+  totalFetched: number;
+}
+
 export interface PoolData {
   tvl: number;
   id: string;

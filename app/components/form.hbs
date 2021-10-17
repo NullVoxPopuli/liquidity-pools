@@ -1,4 +1,4 @@
-<div class="grid gap-2 p-2">
+<div class="grid gap-2">
   <label>
     Starting value ($)
     <input
@@ -18,17 +18,13 @@
     >
   </label>
 
-{{!--
-  {{#if (gt this.inputs.DEXes.length 1)}}
-    <label>
-      DEX
+  <label>
+    DEX
 
-      <select {{on 'change' this.updateDex}}>
-        {{#each this.inputs.DEXes as |dex|}}
-          <option value={{dex}}>{{dex}}</option>
-        {{/each}}
-      </select>
-    </label>
-  {{/if}}
---}}
+    <select {{on 'change' this.updateDex}}>
+      {{#each this.inputs.DEXes as |dex|}}
+        <option value={{dex}}>{{dex}}</option>
+      {{/each}}
+    </select>
+  </label>
 </div>

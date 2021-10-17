@@ -1,3 +1,11 @@
+{{#if this.description}}
+  <pre>{{this.description}}</pre>
+{{/if}}
+
+<div class="p-2">
+  {{round this.viable 2}}% viable of {{this.total}}
+</div>
+
 <table class="table w-full">
   <thead>
     <tr>
@@ -36,7 +44,7 @@
                 text-blue-600
                 visited:text-purple-600
                 hover:underline
-                focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50
+                focus:outline-none focus:ring-4
               "
               href="https://info.uniswap.org/#/pools/{{pool.id}}"
               target="_blank"

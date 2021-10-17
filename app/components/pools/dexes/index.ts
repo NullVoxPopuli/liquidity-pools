@@ -4,6 +4,7 @@ import { useResource } from 'ember-resources';
 
 import { UniswapData } from './uniswap';
 
+import type { DexData } from './-base';
 import type Inputs from 'liquidity-pools/services/inputs';
 
 export class Data {
@@ -11,14 +12,18 @@ export class Data {
 
   uniswap = useResource(this, UniswapData);
 
-  get forCurrentDex() {
+  get currentDex(): DexData {
     switch (this.inputs.dex) {
       case 'uniswap (ETH)':
-        return this.uniswap.sortedData;
-      // case 'quipiswap (XTZ)':
-      //   return [];
+        return this.uniswap;
       default:
-        return [];
+        return {
+          sortedData: [],
+          isLoading: false,
+          totalFetched: 0,
+          viablePercent: 0,
+          description: 'Unrecognized DEX',
+        };
     }
   }
 }

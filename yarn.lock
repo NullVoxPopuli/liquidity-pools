@@ -1210,6 +1210,31 @@
     resolve "^1.20.0"
     semver "^7.3.2"
 
+"@embroider/macros@^0.41.0":
+  version "0.41.0"
+  resolved "https://registry.npmjs.org/@embroider/macros/-/macros-0.41.0.tgz#3e78b6f388d7229906abf4c75edfff8bb0208aca"
+  integrity sha512-QISzwEEfLsskZeL0jyZDs1RoQSotwBWj+4upTogNHuxQP5j/9H3IMG/3QB1gh8GEpbudATb/cS4NDYK3UBxufw==
+  dependencies:
+    "@embroider/shared-internals" "0.41.0"
+    assert-never "^1.1.0"
+    ember-cli-babel "^7.23.0"
+    lodash "^4.17.10"
+    resolve "^1.8.1"
+    semver "^7.3.2"
+
+"@embroider/shared-internals@0.41.0":
+  version "0.41.0"
+  resolved "https://registry.npmjs.org/@embroider/shared-internals/-/shared-internals-0.41.0.tgz#2553f026d4f48ea1fd11235501feb63bf49fa306"
+  integrity sha512-fiqUVB6cfh2UBEFE4yhT5EzagkZ1Q26+OhBV0nJszFEJZx4DqVIb3pxSSZ8P+HhpxuJsQ2XpMA/j02ZPFZfbdQ==
+  dependencies:
+    ember-rfc176-data "^0.3.17"
+    fs-extra "^7.0.1"
+    lodash "^4.17.10"
+    pkg-up "^3.1.0"
+    resolve-package-path "^1.2.2"
+    semver "^7.3.2"
+    typescript-memoize "^1.0.0-alpha.3"
+
 "@embroider/shared-internals@0.47.0":
   version "0.47.0"
   resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-0.47.0.tgz#7288946560044199487ebbb7ac9f4be13c4db19b"
@@ -1291,6 +1316,69 @@
     js-yaml "^3.13.1"
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
+
+"@fortawesome/ember-fontawesome@github:NullVoxPopuli/ember-fontawesome#support-3-20-and-3-24":
+  version "0.2.3"
+  resolved "https://codeload.github.com/NullVoxPopuli/ember-fontawesome/tar.gz/f097df09371b8ae65f306b3bd0247133aaf02e57"
+  dependencies:
+    "@embroider/macros" "^0.41.0"
+    "@fortawesome/fontawesome-svg-core" "^1.2.0"
+    broccoli-file-creator "^2.1.1"
+    broccoli-merge-trees "^4.2.0"
+    broccoli-plugin "^4.0.3"
+    broccoli-rollup "^4.1.1"
+    broccoli-source "^3.0.0"
+    camel-case "^4.1.1"
+    ember-ast-helpers "0.3.5"
+    ember-cli-babel "^7.21.0"
+    ember-cli-htmlbars "^5.2.0"
+    find-yarn-workspace-root "^2.0.0"
+    glob "^7.1.2"
+    rollup-plugin-node-resolve "^5.2.0"
+
+"@fortawesome/fontawesome-common-types@^0.2.36":
+  version "0.2.36"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.36.tgz#b44e52db3b6b20523e0c57ef8c42d315532cb903"
+  integrity sha512-a/7BiSgobHAgBWeN7N0w+lAhInrGxksn13uK7231n2m8EDPE3BMCl9NZLTGrj9ZXfCmC6LM0QLqXidIizVQ6yg==
+
+"@fortawesome/fontawesome-svg-core@^1.2.0":
+  version "1.2.36"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.36.tgz#4f2ea6f778298e0c47c6524ce2e7fd58eb6930e3"
+  integrity sha512-YUcsLQKYb6DmaJjIHdDWpBIGCcyE/W+p/LMGvjQem55Mm2XWVAP5kWTMKWLv9lwpCVjpLxPyOMOyUocP1GxrtA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.36"
+
+"@fortawesome/free-brands-svg-icons@^5.15.4":
+  version "5.15.4"
+  resolved "https://registry.npmjs.org/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.15.4.tgz#ec8a44dd383bcdd58aa7d1c96f38251e6fec9733"
+  integrity sha512-f1witbwycL9cTENJegcmcZRYyawAFbm8+c6IirLmwbbpqz46wyjbQYLuxOc7weXFXfB7QR8/Vd2u5R3q6JYD9g==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.36"
+
+"@fortawesome/free-regular-svg-icons@^5.15.4":
+  version "5.15.4"
+  resolved "https://registry.npmjs.org/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.15.4.tgz#b97edab436954333bbeac09cfc40c6a951081a02"
+  integrity sha512-9VNNnU3CXHy9XednJ3wzQp6SwNwT3XaM26oS4Rp391GsxVYA+0oDR2J194YCIWf7jNRCYKjUCOduxdceLrx+xw==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.36"
+
+"@fortawesome/free-solid-svg-icons@^5.15.4":
+  version "5.15.4"
+  resolved "https://registry.npmjs.org/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.4.tgz#2a68f3fc3ddda12e52645654142b9e4e8fbb6cc5"
+  integrity sha512-JLmQfz6tdtwxoihXLg6lT78BorrFyCf59SAwBM6qV/0zXyVeDygJVb3fk+j5Qat+Yvcxp1buLTY5iDh1ZSAQ8w==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.36"
+
+"@glimmer/compiler@^0.27.0":
+  version "0.27.0"
+  resolved "https://registry.npmjs.org/@glimmer/compiler/-/compiler-0.27.0.tgz#b24042752a53171d5cb3d9a95a29dfc0f314ed2c"
+  integrity sha1-skBCdSpTFx1cs9mpWinfwPMU7Sw=
+  dependencies:
+    "@glimmer/interfaces" "^0.27.0"
+    "@glimmer/syntax" "^0.27.0"
+    "@glimmer/util" "^0.27.0"
+    "@glimmer/wire-format" "^0.27.0"
+    simple-html-tokenizer "^0.3.0"
 
 "@glimmer/component@^1.0.4":
   version "1.0.4"
@@ -1376,6 +1464,13 @@
   integrity sha512-VVsi6Z8BgV9Y42FSybiImb6BR00ILr5m5M0B2VbDFytuKR0scRf0xUzKQV+EgLXOwgu/L5XVQJMWElYxTh6xBw==
   dependencies:
     "@simple-dom/interface" "^1.4.0"
+
+"@glimmer/interfaces@^0.27.0":
+  version "0.27.0"
+  resolved "https://registry.npmjs.org/@glimmer/interfaces/-/interfaces-0.27.0.tgz#473cda3c8cca636989fb310b4ffdb8f14ffae5c9"
+  integrity sha1-RzzaPIzKY2mJ+zELT/248U/65ck=
+  dependencies:
+    "@glimmer/wire-format" "^0.27.0"
 
 "@glimmer/interfaces@^0.42.2":
   version "0.42.2"
@@ -1506,6 +1601,16 @@
     "@glimmer/wire-format" "0.77.6"
     "@simple-dom/interface" "^1.4.0"
 
+"@glimmer/syntax@^0.27.0":
+  version "0.27.0"
+  resolved "https://registry.npmjs.org/@glimmer/syntax/-/syntax-0.27.0.tgz#e53133727cf465a8787a07c7ea660a91689ebdc2"
+  integrity sha1-5TEzcnz0Zah4egfH6mYKkWievcI=
+  dependencies:
+    "@glimmer/interfaces" "^0.27.0"
+    "@glimmer/util" "^0.27.0"
+    handlebars "^4.0.6"
+    simple-html-tokenizer "^0.3.0"
+
 "@glimmer/syntax@^0.42.1":
   version "0.42.2"
   resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.42.2.tgz#89bb3cb787285b84665dc0d8907d94b008e5be9a"
@@ -1559,6 +1664,11 @@
     "@glimmer/env" "0.1.7"
     "@glimmer/interfaces" "0.77.6"
     "@simple-dom/interface" "^1.4.0"
+
+"@glimmer/util@^0.27.0":
+  version "0.27.0"
+  resolved "https://registry.npmjs.org/@glimmer/util/-/util-0.27.0.tgz#e6e26779b4b7ced899ec376c7b949d0f16f92383"
+  integrity sha1-5uJnebS3ztiZ7Ddse5SdDxb5I4M=
 
 "@glimmer/util@^0.42.2":
   version "0.42.2"
@@ -1621,6 +1731,13 @@
   dependencies:
     "@glimmer/interfaces" "0.77.6"
     "@glimmer/util" "0.77.6"
+
+"@glimmer/wire-format@^0.27.0":
+  version "0.27.0"
+  resolved "https://registry.npmjs.org/@glimmer/wire-format/-/wire-format-0.27.0.tgz#1d1729814da57b99f2dbbe718f71456259484b11"
+  integrity sha1-HRcpgU2le5ny275xj3FFYllISxE=
+  dependencies:
+    "@glimmer/util" "^0.27.0"
 
 "@glimmer/wire-format@^0.42.2":
   version "0.42.2"
@@ -1770,6 +1887,11 @@
   dependencies:
     "@types/connect" "*"
     "@types/node" "*"
+
+"@types/broccoli-plugin@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/@types/broccoli-plugin/-/broccoli-plugin-1.3.0.tgz#38f8462fecaebc4e09a32e4d4ed1b9808f75bbca"
+  integrity sha512-SLk4/hFc2kGvgwNFrpn2O1juxFOllcHAywvlo7VwxfExLzoz1GGJ0oIZCwj5fwSpvHw4AWpZjJ1fUvb62PDayQ==
 
 "@types/chai-as-promised@^7.1.2":
   version "7.1.4"
@@ -2150,6 +2272,13 @@
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.4.tgz#cd667bcfdd025213aafb7ca5915a932590acdcdc"
   integrity sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==
+
+"@types/resolve@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.npmjs.org/@types/resolve/-/resolve-0.0.8.tgz#f26074d238e02659e323ce1a13d041eee280e194"
+  integrity sha512-auApPaJf3NPfe18hSoJkp8EbZzer2ISk7o8mCC3M9he/a04+gbMF97NkpD2S8riMGvm4BMRI59/SZQSaLTKpsQ==
+  dependencies:
+    "@types/node" "*"
 
 "@types/rimraf@^2.0.2", "@types/rimraf@^2.0.3":
   version "2.0.5"
@@ -2655,9 +2784,9 @@ acorn@^6.4.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.2.tgz#35866fd710528e92de10cf06016498e47e39e1e6"
   integrity sha512-XtGIhXwF8YM8bJhGxG5kXgjkEuNGLTkoYqVE+KMR+aspr4KGYmKYg7yUe3KghyQ9yheNwLnjmzh/7+gfDBmHCQ==
 
-acorn@^7.0.0, acorn@^7.1.1, acorn@^7.4.0:
+acorn@^7.0.0, acorn@^7.1.0, acorn@^7.1.1, acorn@^7.4.0:
   version "7.4.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
+  resolved "https://registry.npmjs.org/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
 acorn@^8.2.4, acorn@^8.4.1:
@@ -4273,9 +4402,9 @@ broccoli-plugin@^1.0.0, broccoli-plugin@^1.1.0, broccoli-plugin@^1.2.0, broccoli
     rimraf "^2.3.4"
     symlink-or-copy "^1.1.8"
 
-broccoli-plugin@^2.1.0:
+broccoli-plugin@^2.0.0, broccoli-plugin@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com/broccoli-plugin/-/broccoli-plugin-2.1.0.tgz#2fab6c578219cfcc64f773e9616073313fc8b334"
+  resolved "https://registry.npmjs.org/broccoli-plugin/-/broccoli-plugin-2.1.0.tgz#2fab6c578219cfcc64f773e9616073313fc8b334"
   integrity sha512-ElE4caljW4slapyEhSD9jU9Uayc8SoSABWdmY9SqbV8DHNxU6xg1jJsPcMm+cXOvggR3+G+OXAYQeFjWVnznaw==
   dependencies:
     promise-map-series "^0.2.1"
@@ -4335,6 +4464,21 @@ broccoli-rollup@^2.1.1:
     rollup "^0.57.1"
     symlink-or-copy "^1.1.8"
     walk-sync "^0.3.1"
+
+broccoli-rollup@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/broccoli-rollup/-/broccoli-rollup-4.1.1.tgz#7531a24d88ddab9f1bace1c6ee6e6ca74a38d36f"
+  integrity sha512-hkp0dB5chiemi32t6hLe5bJvxuTOm1TU+SryFlZIs95KT9+94uj0C8w6k6CsZ2HuIdIZg6D252t4gwOlcTXrpA==
+  dependencies:
+    "@types/broccoli-plugin" "^1.3.0"
+    broccoli-plugin "^2.0.0"
+    fs-tree-diff "^2.0.1"
+    heimdalljs "^0.2.6"
+    node-modules-path "^1.0.1"
+    rollup "^1.12.0"
+    rollup-pluginutils "^2.8.1"
+    symlink-or-copy "^1.2.0"
+    walk-sync "^1.1.3"
 
 broccoli-slow-trees@^3.0.1, broccoli-slow-trees@^3.1.0:
   version "3.1.0"
@@ -4556,6 +4700,11 @@ buffer@^5.5.0:
     base64-js "^1.3.1"
     ieee754 "^1.1.13"
 
+builtin-modules@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/builtin-modules/-/builtin-modules-3.2.0.tgz#45d5db99e7ee5e6bc4f362e008bf917ab5049887"
+  integrity sha512-lGzLKcioL90C7wMczpkY0n/oART3MbBa8R9OFGE1rJxoVI86u4WAGfEk8Wjv10eKSyTHVGkSo3bvBylCEtk7LA==
+
 builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
@@ -4636,6 +4785,14 @@ callsites@^3.0.0, callsites@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
+
+camel-case@^4.1.1:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/camel-case/-/camel-case-4.1.2.tgz#9728072a954f805228225a6deea6b38461e1bd5a"
+  integrity sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==
+  dependencies:
+    pascal-case "^3.1.2"
+    tslib "^2.0.3"
 
 camelcase-css@^2.0.1:
   version "2.0.1"
@@ -5621,6 +5778,14 @@ ember-array-map-resource@^2.0.0:
     ember-cli-typescript "^4.2.1"
     ember-resources "3.2.1"
 
+ember-ast-helpers@0.3.5:
+  version "0.3.5"
+  resolved "https://registry.npmjs.org/ember-ast-helpers/-/ember-ast-helpers-0.3.5.tgz#db72afd9bc3de03759720ff7b03d4e3b2c7f2351"
+  integrity sha512-ZtaGAUDvRX13G9D4t4WbTMhcUzqsw6KqhcHreIiZi3ZhRFlSZ3BumgyJ6buDZj+tCBLiQsxRv7l5AY6imqNR6Q==
+  dependencies:
+    "@glimmer/compiler" "^0.27.0"
+    "@glimmer/syntax" "^0.27.0"
+
 ember-auto-import@^1.11.3:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.12.0.tgz#52246b04891090e2608244e65c4c6af7710df12b"
@@ -5795,9 +5960,9 @@ ember-cli-get-component-path-option@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-cli-get-component-path-option/-/ember-cli-get-component-path-option-1.0.0.tgz#0d7b595559e2f9050abed804f1d8eff1b08bc771"
   integrity sha1-DXtZVVni+QUKvtgE8djv8bCLx3E=
 
-ember-cli-htmlbars@^5.7.1:
+ember-cli-htmlbars@^5.2.0, ember-cli-htmlbars@^5.7.1:
   version "5.7.1"
-  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-5.7.1.tgz#eb5b88c7d9083bc27665fb5447a9b7503b32ce4f"
+  resolved "https://registry.npmjs.org/ember-cli-htmlbars/-/ember-cli-htmlbars-5.7.1.tgz#eb5b88c7d9083bc27665fb5447a9b7503b32ce4f"
   integrity sha512-9laCgL4tSy48orNoQgQKEHp93MaqAs9ZOl7or5q+8iyGGJHW6sVXIYrVv5/5O9HfV6Ts8/pW1rSoaeKyLUE+oA==
   dependencies:
     "@ember/edition-utils" "^1.2.0"
@@ -6159,10 +6324,10 @@ ember-page-title@^6.2.2:
   dependencies:
     ember-cli-babel "^7.23.1"
 
-ember-query-params-service@^0.5.55:
-  version "0.5.55"
-  resolved "https://registry.yarnpkg.com/ember-query-params-service/-/ember-query-params-service-0.5.55.tgz#e6bdc9feb84820524441dcf0b1dcacc1e607f937"
-  integrity sha512-ChjCr7X6C+6U5Kal8pymBJ51Hj7iYviq28dx+HYk4T3ZQa6cP0Z6VPov+b+x7hyCniHQdVakQn8L3DVUD3udNQ==
+ember-query-params-service@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/ember-query-params-service/-/ember-query-params-service-0.6.0.tgz#70522a81c1d0bcd6904c7b604e1e7def995f8307"
+  integrity sha512-TOKPDQv/hiB53nspEVPXBNEPY4+6IDFeAuIPAHPjv2OxpVpWEKNz5aMOgahLDM2qLaCt9B5MeP/6m+rnYadnuA==
   dependencies:
     "@ember-decorators/utils" "^6.1.1"
     "@glimmer/tracking" "^1.0.4"
@@ -7859,9 +8024,9 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-handlebars@^4.0.13, handlebars@^4.0.4, handlebars@^4.3.1, handlebars@^4.4.2, handlebars@^4.7.3, handlebars@^4.7.7:
+handlebars@^4.0.13, handlebars@^4.0.4, handlebars@^4.0.6, handlebars@^4.3.1, handlebars@^4.4.2, handlebars@^4.7.3, handlebars@^4.7.7:
   version "4.7.7"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
+  resolved "https://registry.npmjs.org/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
   integrity sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==
   dependencies:
     minimist "^1.2.5"
@@ -8550,6 +8715,11 @@ is-language-code@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/is-language-code/-/is-language-code-2.0.0.tgz#6f4d59c551d73b98c45cf9f1d3ce65cee060e65b"
   integrity sha512-6xKmRRcP2YdmMBZMVS3uiJRPQgcMYolkD6hFw2Y4KjqyIyaJlCGxUt56tuu0iIV8q9r8kMEo0Gjd/GFwKrgjbw==
+
+is-module@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/is-module/-/is-module-1.0.0.tgz#3258fb69f78c14d5b815d664336b4cffb6441591"
+  integrity sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=
 
 is-negative-zero@^2.0.1:
   version "2.0.1"
@@ -10294,6 +10464,14 @@ parseurl@~1.3.3:
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
   integrity sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==
 
+pascal-case@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.npmjs.org/pascal-case/-/pascal-case-3.1.2.tgz#b48e0ef2b98e205e7c1dae747d0b1508237660eb"
+  integrity sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==
+  dependencies:
+    no-case "^3.0.4"
+    tslib "^2.0.3"
+
 pascalcase@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
@@ -11222,9 +11400,20 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rollup-pluginutils@^2.0.1:
+rollup-plugin-node-resolve@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.npmjs.org/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-5.2.0.tgz#730f93d10ed202473b1fb54a5997a7db8c6d8523"
+  integrity sha512-jUlyaDXts7TW2CqQ4GaO5VJ4PwwaV8VUGA7+km3n6k6xtOEacf61u0VXwN80phY/evMcaS+9eIeJ9MOyDxt5Zw==
+  dependencies:
+    "@types/resolve" "0.0.8"
+    builtin-modules "^3.1.0"
+    is-module "^1.0.0"
+    resolve "^1.11.1"
+    rollup-pluginutils "^2.8.1"
+
+rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.8.1:
   version "2.8.2"
-  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
+  resolved "https://registry.npmjs.org/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
   integrity sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
   dependencies:
     estree-walker "^0.6.1"
@@ -11245,6 +11434,15 @@ rollup@^0.57.1:
     rollup-pluginutils "^2.0.1"
     signal-exit "^3.0.2"
     sourcemap-codec "^1.4.1"
+
+rollup@^1.12.0:
+  version "1.32.1"
+  resolved "https://registry.npmjs.org/rollup/-/rollup-1.32.1.tgz#4480e52d9d9e2ae4b46ba0d9ddeaf3163940f9c4"
+  integrity sha512-/2HA0Ec70TvQnXdzynFffkjA6XN+1e2pEv/uKS5Ulca40g2L7KuOE3riasHoNVHOsFD5KKZgDsMk1CP3Tw9s+A==
+  dependencies:
+    "@types/estree" "*"
+    "@types/node" "*"
+    acorn "^7.1.0"
 
 rsvp@^3.0.14, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.0.6, rsvp@^3.1.0:
   version "3.6.2"
@@ -11520,6 +11718,11 @@ silent-error@^1.0.0, silent-error@^1.0.1, silent-error@^1.1.1:
   integrity sha512-n4iEKyNcg4v6/jpb3c0/iyH2G1nzUNl7Gpqtn/mHIJK9S/q/7MCfoO4rwVOoO59qPFIc0hVHvMbiOJ0NdtxKKw==
   dependencies:
     debug "^2.2.0"
+
+simple-html-tokenizer@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.npmjs.org/simple-html-tokenizer/-/simple-html-tokenizer-0.3.0.tgz#9b8b5559d80e331a544dd13dd59382e5d0d94411"
+  integrity sha1-m4tVWdgOMxpUTdE91ZOC5dDZRBE=
 
 simple-html-tokenizer@^0.5.10, simple-html-tokenizer@^0.5.8:
   version "0.5.11"
