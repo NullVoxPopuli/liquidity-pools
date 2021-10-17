@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 import { cached } from '@glimmer/tracking';
 import { getOwner, setOwner } from '@ember/application';
+import { inject as service } from '@ember/service';
 
 import { useArrayMap } from 'ember-array-map-resource';
 import { Resource } from 'ember-resources';
@@ -8,17 +10,21 @@ import { gql, useQuery } from 'glimmer-apollo';
 import { PoolData } from './-base';
 
 import type { DexData } from './-base';
+import type Inputs from 'liquidity-pools/services/inputs';
 
 export class UniswapData extends Resource implements DexData {
+  @service declare inputs: Inputs;
+
   poolsQuery = useQuery<GetPoolsQuery>(this, () => [GET_POOLS]);
 
-  description = `
-    This pool data is filtered:
-      - must have at least 3 transactions in the last hour.
-      - number of transactions in the last 24 hours must be greater than half the average for the week.
-      - must have a full week's worth of transactions
-      - overall volume is more than $10,000,000
-  `;
+  get description() {
+    return `
+      This pool data is filtered:
+        - must have at least 3 transactions in the last hour.
+        - number of transactions in the last 24 hours must be greater than half the average for the last ${this.inputs.averageOver} days.
+        - overall volume is more than $10,000,000
+    `;
+  }
 
   data = useArrayMap(this, {
     data: () => this.poolsQuery.data?.pools ?? [],
@@ -33,23 +39,35 @@ export class UniswapData extends Resource implements DexData {
 
   @cached
   get sortedData() {
+    let timeLabel = 'Sorting and filtering data...';
+
+    console.time(timeLabel);
+
+    let numDays = this.inputs.averageOver;
     let pools = this.data.records.filter(Boolean) as UniswapPool[];
     let sorted = pools
       .filter((data) => {
+        if (data.pool.poolDayData.length < numDays) {
+          return;
+        }
+
         let isNotNFT = data.pool.token0.name !== 'NFT';
         let hasRecentTransactions = Number(data.pool.poolHourData[0].txCount) > 2;
         let lastDayTransactions = Number(data.pool.poolDayData[1].txCount);
-        let averagePerWeek = data.weekTransactions / 7;
+        let averagePerWeek = data.averageOverTransactions / numDays;
         let minTransactions = averagePerWeek / 2;
 
         // the ratio of average over the week's transactions must be greater than half of
         // the expected average of one day (assuming equal distribution)
-        let isNotOneShot = averagePerWeek / data.weekTransactions > 1 / 7 / 2;
+        let isNotOneShot = averagePerWeek / data.averageOverTransactions > 1 / numDays / 2;
         let hasSteadyTransactions = minTransactions < lastDayTransactions;
 
         return isNotNFT && hasRecentTransactions && hasSteadyTransactions && isNotOneShot;
       })
+      .filter(Boolean)
       .sort((a, b) => (b?.expectedIncome ?? 0) - (a?.expectedIncome ?? 0));
+
+    console.timeEnd(timeLabel);
 
     return sorted as PoolData[];
   }
@@ -101,21 +119,25 @@ export class UniswapPool extends PoolData {
     return Number(this.pool.totalValueLockedUSD);
   }
 
-  get weekTransactions() {
-    return this.pool.poolDayData.reduce((sum, day) => {
+  get averageOverData() {
+    return this.pool.poolDayData.slice(0, this.inputs.averageOver);
+  }
+
+  get averageOverTransactions() {
+    return this.averageOverData.reduce((sum, day) => {
       return Number(day.txCount) + sum;
     }, 0);
   }
 
-  get weekVolume() {
-    return this.pool.poolDayData.reduce((sum, day) => {
+  get averageOverVolume() {
+    return this.averageOverData.reduce((sum, day) => {
       return Number(day.volumeUSD) + sum;
     }, 0);
   }
 
   get volume() {
     if (this.inputs.weekAverage) {
-      return this.weekVolume;
+      return this.averageOverVolume;
     }
 
     // day 0 is WIP
@@ -180,7 +202,7 @@ export const GET_POOLS = gql`
         periodStartUnix
       }
 
-      poolDayData(first: 7, orderBy: date, orderDirection: desc) {
+      poolDayData(first: 30, orderBy: date, orderDirection: desc) {
         volumeUSD
         liquidity
         feesUSD

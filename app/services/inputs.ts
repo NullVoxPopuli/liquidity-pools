@@ -18,6 +18,12 @@ export default class Inputs extends Service {
   })
   amount = 100;
 
+  @queryParam({
+    deserialize: (qp: string) => Number(qp || '') || 0,
+    serialize: (value: number) => value || 7,
+  })
+  averageOver = 7;
+
   @queryParam weekAverage = true;
 
   @queryParam dex: DEX = 'uniswap (ETH)';

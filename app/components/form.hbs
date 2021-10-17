@@ -10,11 +10,14 @@
   </label>
 
   <label>
-    Use 7-day average
+    Average over (days)
+
     <input
-      type="checkbox"
-      checked={{this.inputs.weekAverage}}
-      {{on 'change' this.toggle7Day}}
+      type="number"
+      min="1"
+      max="30"
+      value={{this.inputs.averageOver}}
+      {{on 'input' this.updateAverageOver}}
     >
   </label>
 
