@@ -23,6 +23,9 @@ export class UniswapData extends Resource implements DexData {
         - must have at least 3 transactions in the last hour.
         - number of transactions in the last 24 hours must be greater than half the average for the last ${this.inputs.averageOver} days.
         - overall volume is more than $10,000,000
+        - control of the pool is under ${this.inputs.maxControl}%
+
+      DISCLAIMER: this data/analysis may be wildly inaccurate.
     `;
   }
 
@@ -62,7 +65,15 @@ export class UniswapData extends Resource implements DexData {
         let isNotOneShot = averagePerWeek / data.averageOverTransactions > 1 / numDays / 2;
         let hasSteadyTransactions = minTransactions < lastDayTransactions;
 
-        return isNotNFT && hasRecentTransactions && hasSteadyTransactions && isNotOneShot;
+        let isNotDominating = data.yourShare < this.inputs.maxControl / 100;
+
+        return (
+          isNotNFT &&
+          hasRecentTransactions &&
+          hasSteadyTransactions &&
+          isNotOneShot &&
+          isNotDominating
+        );
       })
       .filter(Boolean)
       .sort((a, b) => (b?.expectedIncome ?? 0) - (a?.expectedIncome ?? 0));

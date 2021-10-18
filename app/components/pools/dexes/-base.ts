@@ -16,6 +16,7 @@ export interface PoolData {
   name: string;
   rate: number;
   volume: number;
+  averageOverVolume: number;
 }
 
 export abstract class PoolData {
@@ -30,6 +31,6 @@ export abstract class PoolData {
   get expectedIncome(): number {
     let rateAsDecimal = this.rate / 100;
 
-    return this.yourShare * (rateAsDecimal * this.volume);
+    return this.yourShare * (rateAsDecimal * this.averageOverVolume);
   }
 }

@@ -13,16 +13,25 @@ export default class Inputs extends Service {
   DEXes = DEXes;
 
   @queryParam({
-    deserialize: (qp: string) => Number(qp || '') || 0,
-    serialize: (value: number) => value || 100,
+    defaultValue: 100,
+    deserialize: (qp: string) => Number(qp || ''),
+    serialize: (value: number) => value,
   })
   amount = 100;
 
   @queryParam({
-    deserialize: (qp: string) => Number(qp || '') || 0,
-    serialize: (value: number) => value || 7,
+    defaultValue: 7,
+    deserialize: (qp: string) => Number(qp || ''),
+    serialize: (value: number) => value,
   })
   averageOver = 7;
+
+  @queryParam({
+    defaultValue: 2,
+    deserialize: (qp: string) => Number(qp || ''),
+    serialize: (value: number) => value,
+  })
+  maxControl = 2;
 
   @queryParam weekAverage = true;
 

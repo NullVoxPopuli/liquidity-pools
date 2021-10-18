@@ -22,6 +22,17 @@
   </label>
 
   <label>
+    Max control (%)
+
+    <input
+      type="number"
+      min="0"
+      value={{this.inputs.maxControl}}
+      {{on 'input' this.updateMaxControl}}
+    >
+  </label>
+
+  <label>
     DEX
 
     <select {{on 'change' this.updateDex}}>

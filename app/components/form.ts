@@ -19,6 +19,11 @@ export default class FormComponent extends Component {
     this.inputs.averageOver = parseFloat(e.target.value);
   };
 
+  updateMaxControl = (e: Event) => {
+    assert('expected input!', e.target instanceof HTMLInputElement);
+    this.inputs.maxControl = parseFloat(e.target.value);
+  };
+
   toggle7Day = () => (this.inputs.weekAverage = !this.inputs.weekAverage);
 
   updateDex = (e: Event) => {
