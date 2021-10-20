@@ -14,8 +14,12 @@
       <th>TVL</th>
       <th>Your Share</th>
       <th>Volume</th>
+      <th>Total Fees</th>
       <th>
-        Estimated Fees over {{this.inputs.averageOver}} days
+        Your fees/day
+      </th>
+      <th>
+        fees * ({{this.inputs.averageOver}} days)
       </th>
     </tr>
   </thead>
@@ -51,7 +55,9 @@
           <td>{{currency pool.tvl}}</td>
           <td>{{round (percent pool.yourShare) 3}} %</td>
           <td>{{currency pool.volume}}</td>
-          <td>{{currency pool.expectedIncome}}</td>
+          <td>{{currency pool.totalFees}}</td>
+          <td>{{currency pool.expectedPerDay}}</td>
+          <td>{{currency pool.expectedForSpecifiedDays}}</td>
 
         </tr>
 

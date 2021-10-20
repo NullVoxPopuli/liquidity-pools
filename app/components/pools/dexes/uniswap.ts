@@ -76,7 +76,7 @@ export class UniswapData extends Resource implements DexData {
         );
       })
       .filter(Boolean)
-      .sort((a, b) => (b?.expectedIncome ?? 0) - (a?.expectedIncome ?? 0));
+      .sort((a, b) => (b?.expectedPerDay ?? 0) - (a?.expectedPerDay ?? 0));
 
     console.timeEnd(timeLabel);
 
@@ -130,29 +130,26 @@ export class UniswapPool extends PoolData {
     return Number(this.pool.totalValueLockedUSD);
   }
 
-  get averageOverData() {
+  get duration() {
     return this.pool.poolDayData.slice(0, this.inputs.averageOver);
   }
 
   get averageOverTransactions() {
-    return this.averageOverData.reduce((sum, day) => {
+    return this.duration.reduce((sum, day) => {
       return Number(day.txCount) + sum;
     }, 0);
   }
 
   get averageOverVolume() {
-    return this.averageOverData.reduce((sum, day) => {
-      return Number(day.volumeUSD) + sum;
-    }, 0);
+    return this.volume / this.inputs.averageOver;
   }
 
   get volume() {
-    if (this.inputs.weekAverage) {
-      return this.averageOverVolume;
-    }
+    let data = this.duration;
 
-    // day 0 is WIP
-    return Number(this.pool.poolDayData[1].volumeUSD);
+    return data.reduce((sum, timeBucket) => {
+      return Number(timeBucket.volumeUSD) + sum;
+    }, 0);
   }
 }
 
@@ -175,6 +172,7 @@ type GetPoolsQuery = {
     };
     poolHourData: {
       txCount: string;
+      volumeUSD: string;
     }[];
     poolDayData: {
       txCount: string;
@@ -208,9 +206,10 @@ export const GET_POOLS = gql`
         symbol
       }
 
-      poolHourData(first: 1, orderBy: periodStartUnix, orderDirection: desc) {
+      poolHourData(first: 24, orderBy: periodStartUnix, orderDirection: desc) {
         txCount
         periodStartUnix
+        volumeUSD
       }
 
       poolDayData(first: 30, orderBy: date, orderDirection: desc) {

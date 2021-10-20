@@ -25,12 +25,21 @@ export abstract class PoolData {
   get yourShare(): number {
     let starting = this.inputs.amount || 0;
 
+    // return starting / this.tvl;
     return starting / (starting + this.tvl);
   }
 
-  get expectedIncome(): number {
+  get totalFees() {
     let rateAsDecimal = this.rate / 100;
 
-    return this.yourShare * (rateAsDecimal * this.averageOverVolume);
+    return this.volume * rateAsDecimal;
+  }
+
+  get expectedPerDay(): number {
+    return (this.yourShare * this.totalFees) / this.inputs.averageOver;
+  }
+
+  get expectedForSpecifiedDays(): number {
+    return this.yourShare * this.totalFees;
   }
 }
